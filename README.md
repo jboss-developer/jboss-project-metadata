@@ -1,2 +1,81 @@
 JBoss Project Metadata
 
+= Products XML Usage
+
+Each XML file will be used by awestruct for loading product links for each product. It is suggested the name of each
+file be the lowercase hyphenated name of the product (e.g. jboss-enterprise-application-platform.xml).
+
+== Format
+
+The format of the product xml files must follow the xsd file. Below is an example.
+
+.jboss-enterprise-application-platform.xml
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<product 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="urn:jboss-developer:products"
+        xsi:schemaLocation="urn:jboss-developer:products products.xsd"
+        name="jboss-enterprise-application-platform">
+    <uses>
+       <project org="jboss" name="errai"/>
+       <spec org="jcp" name="jsr314"/>
+       <spec org="jcp" name="jsr299"/>
+       <project org="jboss" name="richfaces"/>
+    </uses>
+</product>
+----
+
+= Projects XML Usage
+
+Each XML file will be used by awestruct for loading project links and descriptions for each project. 
+Each XML file will represent a project and must contain the organization the project belongs to.
+
+== Format
+
+The format of the projects xml files must follow the xsd file. Below is an example.
+
+.red-hat.xml
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="urn:jboss-developer:projects"
+        xsi:schemaLocation="urn:jboss-developer:projects projects.xsd"
+        name="errai" url="http://www.jboss.org/errai">
+  <organization>
+    JBoss by Red Hat
+  </organization>
+  <tagline>The browser as a platform.</tagline>
+  <description>
+      What if you could use Java, CDI, and JPA in your web browser? What if you could use Java without losing 
+      any of the flexibility of HTML5, JavaScript and CSS? The answer is, you can. And that framework is Errai!
+  </description>
+  <namespace>
+    org.jboss.errai
+  </namespace>
+</project>
+----
+
+= Specification XML Usage
+
+Each XML file will be used by awestruct for loading specification links for each product. It is suggested the name of each
+file be the lowercase hyphenated (if needed) name of the standards organization (e.g. w3c.xml, jcp.xml, ieee.xml).
+
+== Format
+
+The format of the specification xml files must follow the xsd file. Below is an example.
+
+.jcp.xml
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<specList 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="urn:jboss-developer:specs"
+        xsi:schemaLocation="urn:jboss-developer:specs specs.xsd">
+
+    <spec name="jsr299" url="http://jcp.org/en/jsr/detail?id=299"/>
+    <spec name="jsr314" url="http://jcp.org/en/jsr/detail?id=314"/>
+</specList>
+----
+
