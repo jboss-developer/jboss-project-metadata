@@ -1,5 +1,73 @@
 = JBoss Project Metadata
 
+JBoss project metadata encompases projects that Red Hat contributes to in the middleware space, standards Red Hat contributes to in the middleware space, and how they are included in Red Hat products.
+
+The metadata is stored in XML format. Each type of metadata has an associated schema with detailed help for each element and attribute.
+
+== Projects XML Usage
+
+Each XML file will represent a project and must contain a number of elements and attributes as defined by the XSD..
+
+=== Example
+
+The format of the projects xml files must follow the XSD file. Below is an example.
+
+.hibernate-search.xml
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="urn:jboss-developer:projects"
+        xsi:schemaLocation="urn:jboss-developer:projects projects.xsd"
+        name="Hibernate Seach" 
+        short-name="Search" 
+        url="http://www.hibernate.org/subprojects/search" 
+        organization="A Red Hat JBoss Project" 
+        scm="https://github.com/hibernate/hibernate-search" 
+        downloads="http://www.hibernate.org/subprojects/search/download" 
+        documentation="http://www.hibernate.org/subprojects/search/docs"
+        issuetracker="https://hibernate.atlassian.net/browse/HSEARCH"
+        forum="https://forum.hibernate.org/viewforum.php?f=9"
+        irc="http://www.hibernate.org/community/irc"
+        dev-mailing-list="https://lists.jboss.org/mailman/listinfo/hibernate-dev"
+        twitter-account="@Hibernate"
+        google-plus="https://plus.google.com/112681342290762837955/posts">
+
+  <tagline>Hibernate Search brings the power of full text search engines to the persistence domain model by combining Hibernate Core with the capabilities of the Apache Lucene™ search engine.</tagline>
+  <description>
+  Hibernate Search brings the power of full text search engines to the persistence domain model by combining Hibernate Core with the capabilities of the Apache Lucene™ search engine.
+  </description>
+  <namespace type="maven-group-id">
+    org.hibernate
+  </namespace>
+  <namespace type="java-package">
+    org.hibernate.search
+  </namespace>
+</project>
+----
+
+== Specification XML Usage
+
+Each XML file will be used by awestruct for loading specification links for each product. It is suggested the name of each
+file be the lowercase hyphenated (if needed) name of the standards organization (e.g. w3c.xml, jcp.xml, ieee.xml).
+
+=== Format
+
+The format of the specification xml files must follow the xsd file. Below is an example.
+
+.jcp.xml
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<specList 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="urn:jboss-developer:specs"
+        xsi:schemaLocation="urn:jboss-developer:specs specs.xsd">
+
+    <spec name="jsr299" url="http://jcp.org/en/jsr/detail?id=299"/>
+    <spec name="jsr314" url="http://jcp.org/en/jsr/detail?id=314"/>
+</specList>
+----
+
 == Products XML Usage
 
 Each XML file will be used by awestruct for loading product links for each product. It is suggested the name of each
@@ -26,56 +94,4 @@ The format of the product xml files must follow the xsd file. Below is an exampl
 </product>
 ----
 
-== Projects XML Usage
-
-Each XML file will be used by awestruct for loading project links and descriptions for each project. 
-Each XML file will represent a project and must contain the organization the project belongs to.
-
-=== Format
-
-The format of the projects xml files must follow the xsd file. Below is an example.
-
-.red-hat.xml
-----
-<?xml version="1.0" encoding="UTF-8"?>
-<project
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns="urn:jboss-developer:projects"
-        xsi:schemaLocation="urn:jboss-developer:projects projects.xsd"
-        name="errai" url="http://www.jboss.org/errai">
-  <organization>
-    JBoss by Red Hat
-  </organization>
-  <tagline>The browser as a platform.</tagline>
-  <description>
-      What if you could use Java, CDI, and JPA in your web browser? What if you could use Java without losing 
-      any of the flexibility of HTML5, JavaScript and CSS? The answer is, you can. And that framework is Errai!
-  </description>
-  <namespace>
-    org.jboss.errai
-  </namespace>
-</project>
-----
-
-== Specification XML Usage
-
-Each XML file will be used by awestruct for loading specification links for each product. It is suggested the name of each
-file be the lowercase hyphenated (if needed) name of the standards organization (e.g. w3c.xml, jcp.xml, ieee.xml).
-
-=== Format
-
-The format of the specification xml files must follow the xsd file. Below is an example.
-
-.jcp.xml
-----
-<?xml version="1.0" encoding="UTF-8"?>
-<specList 
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns="urn:jboss-developer:specs"
-        xsi:schemaLocation="urn:jboss-developer:specs specs.xsd">
-
-    <spec name="jsr299" url="http://jcp.org/en/jsr/detail?id=299"/>
-    <spec name="jsr314" url="http://jcp.org/en/jsr/detail?id=314"/>
-</specList>
-----
 

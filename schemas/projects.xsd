@@ -1,40 +1,202 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-  targetNamespace="urn:jboss-developer:projects" xmlns:projects="urn:jboss-developer:projects">
-  <xs:element name="project" type="projects:projectType" />
-  <xs:complexType name="projectType">
-    <xs:annotation>
-      <xs:documentation> 
-        A project includes a name, URL, optionally description and tag line.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence minOccurs="0" maxOccurs="1">
-      <xs:element name="tagline" minOccurs="0" maxOccurs="1" type="xs:string">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified" targetNamespace="urn:jboss-developer:projects"
+    xmlns:projects="urn:jboss-developer:projects">
+    <xs:element name="project" type="projects:projectType" />
+    <xs:complexType name="projectType">
         <xs:annotation>
-          <xs:documentation> 
-            A tag line is a short, one sentence catch phrase for the
-            project, something that describes its main function. 
-          </xs:documentation>
+            <xs:documentation>
+                A project includes a number of required attributes,
+                and a number of
+                optional attributes.
+            </xs:documentation>
         </xs:annotation>
-      </xs:element>
-      <xs:element name="description" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation> 
-            The descriptions of the project should be short, two or three
-            sentences maximum. It's meant to be displayed in a small tooltip.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="namespace" minOccures="1" maxOccures="unbounded" type="xs:string">
-        <xs:annotation>
-          <xs:documentation>
-            A Java package, namespace or unique naming convention exported from the project.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-    <xs:attribute name="name" type="xs:string" use="required"/>
-    <xs:attribute name="organization" type="xs:string" use="required"/>
-    <xs:attribute name="url" type="xs:anyURI" use="optional"/>
-  </xs:complexType>
+        <xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:element name="tagline" minOccurs="1"
+                maxOccurs="1" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        A tag line is a short, one sentence catch phrase
+                        for the
+                        project, something that describes its main function.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="description" minOccurs="1"
+                maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        The descriptions of the project should be short,
+                        two or three
+                        sentences maximum. It's meant to be displayed in a
+                        small tooltip.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="namespace" minOccurs="1"
+                maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        A Java package, namespace or unique naming
+                        convention exported from
+                        the project.
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="type" type="projects:namespaceType" use="optional"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    The full project name. For example "Hibernate
+                    Search".
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="short-name" type="xs:string"
+            use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    A shorter version of the project name, which may
+                    be used in place of
+                    the full project name, once the project has been
+                    introduced. For
+                    example "Search".
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="organization" type="projects:organizationType"
+            use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    The organization hosting this project.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="url" type="xs:anyURI" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    The URL of the project homepage e.g.
+                    http://www.hibernate.org/subprojects/search
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="scm" type="xs:anyURI" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    The URL of the project SCM repository e.g.
+                    https://github.com/hibernate/hibernate-search
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="downloads" type="xs:anyURI"
+            use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    The URL of the project download page e.g.
+                    http://www.hibernate.org/subprojects/search/download
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="documentation" type="xs:anyURI"
+            use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    The URL of the project documentation or documentation overview page
+                    e.g.
+                    http://www.hibernate.org/subprojects/search/docs
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="issuetracker" type="xs:anyURI"
+            use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    The URL of the project issue tracker e.g.
+                    https://hibernate.atlassian.net/browse/HSEARCH
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="forum" type="xs:anyURI" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    The URL of the project forum, if it has one e.g.
+                    https://forum.hibernate.org/viewforum.php?f=9
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="irc" type="xs:anyURI" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    The URL of the project IRC channel, or IRC channel overview page, if
+                    there is one e.g.
+                    http://www.hibernate.org/community/irc
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dev-mailing-list" type="xs:anyURI"
+            use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    The URL of the project development mailing list, if it has one e.g.
+                    https://lists.jboss.org/mailman/listinfo/hibernate-dev
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="user-mailing-list" type="xs:anyURI"
+            use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    The URL of the project development mailing list, if it has one.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="twitter-hashtag" type="xs:string"
+            use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    The twitter hash tag associated with the project.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="twitter-account" type="xs:string"
+            use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    The twitter hash tag associated with the project e.g. @Hibernate
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="google-plus" type="xs:anyURI"
+            use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    The google plus page for the project e.g.
+                    https://plus.google.com/112681342290762837955/posts
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:simpleType name="organizationType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="A Red Hat JBoss Project" />
+            <xs:enumeration value="Apache Software Foundation" />
+            <xs:enumeration value="Eclipse Foundation" />
+            <xs:enumeration value="Other" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="namespaceType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="maven-group-id" />
+            <xs:enumeration value="java-package" />
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>

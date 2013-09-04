@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="urn:jboss-developer:projects"
+        xsi:schemaLocation="urn:jboss-developer:projects ../schemas/projects.xsd"
+        name="Hibernate Seach" 
+        short-name="Search" 
+        url="http://www.hibernate.org/subprojects/search" 
+        organization="A Red Hat JBoss Project" 
+        scm="https://github.com/hibernate/hibernate-search" 
+        downloads="http://www.hibernate.org/subprojects/search/download" 
+        documentation="http://www.hibernate.org/subprojects/search/docs"
+        issuetracker="https://hibernate.atlassian.net/browse/HSEARCH"
+        forum="https://forum.hibernate.org/viewforum.php?f=9"
+        irc="http://www.hibernate.org/community/irc"
+        dev-mailing-list="https://lists.jboss.org/mailman/listinfo/hibernate-dev"
+        twitter-account="@Hibernate"
+        google-plus="https://plus.google.com/112681342290762837955/posts">
+
+  <tagline>Hibernate Search brings the power of full text search engines to the persistence domain model by combining Hibernate Core with the capabilities of the Apache Lucene™ search engine.</tagline>
+  <description>
+  Hibernate Search brings the power of full text search engines to the persistence domain model by combining Hibernate Core with the capabilities of the Apache Lucene™ search engine.
+  </description>
+  <namespace type="maven-group-id">
+    org.hibernate
+  </namespace>
+  <namespace type="java-package">
+    org.hibernate.search
+  </namespace>
+  
+  
+</project>
+
