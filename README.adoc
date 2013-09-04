@@ -6,7 +6,8 @@ The metadata is stored in XML format. Each type of metadata has an associated sc
 
 == Projects XML Usage
 
-Each XML file will represent a project and must contain a number of elements and attributes as defined by the XSD..
+Each XML file in the `projects/` directory represents a project. The name of each file is the lowercase hyphenated (if needed) name of the project (e.g. hibernate-search.xml)
+
 
 === Example
 
@@ -48,12 +49,11 @@ The format of the projects xml files must follow the XSD file. Below is an examp
 
 == Specification XML Usage
 
-Each XML file will be used by awestruct for loading specification links for each product. It is suggested the name of each
-file be the lowercase hyphenated (if needed) name of the standards organization (e.g. w3c.xml, jcp.xml, ieee.xml).
+Each XML file in the `specs/` directory represents a specifcation organisation. The name of each file is the lowercase hyphenated (if needed) name of the standards organization (e.g. w3c.xml, jcp.xml, ieee.xml).
 
-=== Format
+=== Example
 
-The format of the specification xml files must follow the xsd file. Below is an example.
+The format of the specification xml files must follow the XSD file. Below is an example.
 
 .jcp.xml
 ----
@@ -70,14 +70,13 @@ The format of the specification xml files must follow the xsd file. Below is an 
 
 == Products XML Usage
 
-Each XML file will be used by awestruct for loading product links for each product. It is suggested the name of each
-file be the lowercase hyphenated name of the product (e.g. jboss-enterprise-application-platform.xml).
+Each XML file in the `products/` directory represents a Red Hat JBoss product. The name of each file is the lowercase hyphenated abbreviated name of the product (e.g. jboss-eap.xml).
 
-=== Format
+=== Example
 
-The format of the product xml files must follow the xsd file. Below is an example.
+The format of the product xml files must follow the XSD file. Below is an example.
 
-.jboss-enterprise-application-platform.xml
+.jboss-eap.xml
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 <product 
@@ -86,10 +85,9 @@ The format of the product xml files must follow the xsd file. Below is an exampl
         xsi:schemaLocation="urn:jboss-developer:products products.xsd"
         name="jboss-enterprise-application-platform">
     <uses>
-       <project org="jboss" name="errai"/>
+       <project org="jboss" name="wildfly"/>
        <spec org="jcp" name="jsr314"/>
        <spec org="jcp" name="jsr299"/>
-       <project org="jboss" name="richfaces"/>
     </uses>
 </product>
 ----
