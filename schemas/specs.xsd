@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="urn:jboss-developer:specs" xmlns:specs="urn:jboss-developer:specs">
-        <xs:element name="specList">
+    targetNamespace="urn:jboss-developer:specs" xmlns:s="urn:jboss-developer:specs">
+    <xs:element name="specs">
         <xs:annotation>
             <xs:documentation> A list of specifications for the organization this file represents.
             </xs:documentation>
         </xs:annotation>
         <xs:complexType>
             <xs:sequence minOccurs="1" maxOccurs="unbounded">
-                <xs:element name="spec" type="specs:specType"/>
+                <xs:element name="spec" type="s:spec-type"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:complexType name="specType">
+    <xs:complexType name="spec-type">
         <xs:annotation>
             <xs:documentation> A spec is simply the name and the URL of the specification.
             </xs:documentation>

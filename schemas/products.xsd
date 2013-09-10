@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:jboss-developer:products"
   xmlns:products="urn:jboss-developer:products">
-  <xs:element name="product" type="products:productType">
+  <xs:element name="product" type="products:product-type">
     <xs:annotation>
       <xs:documentation> 
         A product developed by Red Hat and all the upstream projects and
@@ -9,9 +9,9 @@
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name="productType">
+  <xs:complexType name="product-type">
     <xs:sequence>
-      <xs:element name="uses" type="products:usesType" minOccurs="0" maxOccurs="1">
+      <xs:element name="uses" type="products:uses-type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation> 
             The list of upstream projects and also specifications the
@@ -28,9 +28,9 @@
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
-  <xs:complexType name="usesType">
+  <xs:complexType name="uses-type">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="project" type="products:projectRefType">
+      <xs:element name="project" type="products:project-ref-type">
         <xs:annotation>
           <xs:documentation> 
             A reference to the project (contained with an XML file in the
@@ -38,7 +38,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="spec" type="products:specRefType">
+      <xs:element name="spec" type="products:spec-ref-type">
         <xs:annotation>
           <xs:documentation> 
             A reference to the spec (contained with an XML file in the
@@ -48,7 +48,7 @@
       </xs:element>
     </xs:choice>
   </xs:complexType>
-  <xs:complexType name="projectRefType">
+  <xs:complexType name="project-ref-type">
     <xs:attribute name="org" use="required" type="xs:string">
       <xs:annotation>
         <xs:documentation> 
@@ -66,7 +66,7 @@
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
-  <xs:complexType name="specRefType">
+  <xs:complexType name="spec-ref-type">
     <xs:attribute name="org" use="required" type="xs:string">
       <xs:annotation>
         <xs:documentation> 

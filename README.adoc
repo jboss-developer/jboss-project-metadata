@@ -59,14 +59,14 @@ The format of the specification xml files must follow the XSD file. Below is an 
 .jcp.xml
 ----
 <?xml version="1.0" encoding="UTF-8"?>
-<specList 
+<specs 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="urn:jboss-developer:specs"
         xsi:schemaLocation="urn:jboss-developer:specs specs.xsd">
 
     <spec name="jsr299" url="http://jcp.org/en/jsr/detail?id=299"/>
     <spec name="jsr314" url="http://jcp.org/en/jsr/detail?id=314"/>
-</specList>
+</specs>
 ----
 
 == Products XML Usage
