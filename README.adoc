@@ -31,8 +31,6 @@ The format of the projects xml files must follow the XSD file. Below is an examp
         forum="https://forum.hibernate.org/viewforum.php?f=9"
         irc="http://www.hibernate.org/community/irc"
         dev-mailing-list="https://lists.jboss.org/mailman/listinfo/hibernate-dev"
-        twitter-account="@Hibernate"
-        google-plus="https://plus.google.com/112681342290762837955/posts">
 
   <tagline>Hibernate Search brings the power of full text search engines to the persistence domain model by combining Hibernate Core with the capabilities of the Apache Lucene™ search engine.</tagline>
   <description>
@@ -44,6 +42,9 @@ The format of the projects xml files must follow the XSD file. Below is an examp
   <namespace type="java-package">
     org.hibernate.search
   </namespace>
+  <social-network type="twitter-account">@Hibernate</social-network>
+  <social-network type="googleplus-url">https://plus.google.com/112681342290762837955/posts</social-network>
+  <label name="lead-developer">Sanne Grinovero</label>
 </project>
 ----
 

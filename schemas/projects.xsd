@@ -2,8 +2,8 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     elementFormDefault="qualified" targetNamespace="urn:jboss-developer:projects"
     xmlns:projects="urn:jboss-developer:projects">
-    <xs:element name="project" type="projects:projectType" />
-    <xs:complexType name="projectType">
+    <xs:element name="project" type="projects:project-type" />
+    <xs:complexType name="project-type">
         <xs:annotation>
             <xs:documentation>
                 A project includes a number of required attributes,
@@ -45,7 +45,47 @@
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:string">
-                            <xs:attribute name="type" type="projects:namespaceType" use="optional"/>
+                            <xs:attribute name="type" type="projects:namespace-type" use="optional"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="social-network" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        A social network identifier used by this project
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="type" type="xs:string" use="required">
+                                <xs:annotation>
+                                    <xs:documentation>
+                                        The type of network. Current examples include twitter-account, twitter-hashtag and googleplus-url
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:attribute>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="label" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Additional metadata for the project
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="name" type="xs:string" use="required">
+                                <xs:annotation>
+                                    <xs:documentation>
+                                        The label name
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:attribute>
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
@@ -71,7 +111,7 @@
                 </xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="organization" type="projects:organizationType"
+        <xs:attribute name="organization" type="projects:organization-type"
             use="required">
             <xs:annotation>
                 <xs:documentation>
@@ -157,34 +197,9 @@
                 </xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="twitter-hashtag" type="xs:string"
-            use="optional">
-            <xs:annotation>
-                <xs:documentation>
-                    The twitter hash tag associated with the project.
-                </xs:documentation>
-            </xs:annotation>
-        </xs:attribute>
-        <xs:attribute name="twitter-account" type="xs:string"
-            use="optional">
-            <xs:annotation>
-                <xs:documentation>
-                    The twitter hash tag associated with the project e.g. @Hibernate
-                </xs:documentation>
-            </xs:annotation>
-        </xs:attribute>
-        <xs:attribute name="google-plus" type="xs:anyURI"
-            use="optional">
-            <xs:annotation>
-                <xs:documentation>
-                    The google plus page for the project e.g.
-                    https://plus.google.com/112681342290762837955/posts
-                </xs:documentation>
-            </xs:annotation>
-        </xs:attribute>
     </xs:complexType>
 
-    <xs:simpleType name="organizationType">
+    <xs:simpleType name="organization-type">
         <xs:restriction base="xs:string">
             <xs:enumeration value="A Red Hat JBoss Project" />
             <xs:enumeration value="Apache Software Foundation" />
@@ -193,7 +208,7 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="namespaceType">
+    <xs:simpleType name="namespace-type">
         <xs:restriction base="xs:string">
             <xs:enumeration value="maven-group-id" />
             <xs:enumeration value="java-package" />
