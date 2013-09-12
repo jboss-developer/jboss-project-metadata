@@ -3,21 +3,49 @@
     targetNamespace="urn:jboss-developer:specs" xmlns:s="urn:jboss-developer:specs">
     <xs:element name="specs">
         <xs:annotation>
-            <xs:documentation> A list of specifications for the organization this file represents.
+            <xs:documentation> 
+                A list of specifications for the organization this file represents.
             </xs:documentation>
         </xs:annotation>
         <xs:complexType>
             <xs:sequence minOccurs="1" maxOccurs="unbounded">
                 <xs:element name="spec" type="s:spec-type"/>
             </xs:sequence>
+            <xs:attribute name="organization-id" type="xs:string" use="required">
+                <xs:annotation>
+                    <xs:documentation> 
+                        The id of the organization this file contains specifications for. Normally the same as the file name.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
         </xs:complexType>
     </xs:element>
     <xs:complexType name="spec-type">
         <xs:annotation>
-            <xs:documentation> A spec is simply the name and the URL of the specification.
+            <xs:documentation> 
+                A spec is simply the name and the URL of the specification.
             </xs:documentation>
         </xs:annotation>
-        <xs:attribute name="name" type="xs:string" use="required"/>
-        <xs:attribute name="url" type="xs:anyURI" use="optional"/>
+        <xs:attribute name="specification-id" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation> 
+                    The id of the specification, normally, the id assigned by the organization.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation> 
+                    The name of the specification, normally, the full name assigned by the organization.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="url" type="xs:anyURI" use="optional">
+            <xs:annotation>
+                <xs:documentation> 
+                    A URL to a page or website about the specification.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
     </xs:complexType>
 </xs:schema>

@@ -2,9 +2,10 @@
 <specs 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="urn:jboss-developer:specs"
-        xsi:schemaLocation="urn:jboss-developer:specs ../schemas/specs.xsd">
+        xsi:schemaLocation="urn:jboss-developer:specs ../schemas/specs.xsd"
+        organization-id="jcp">
 
-    <spec name="jsr299" url="http://jcp.org/en/jsr/detail?id=299"/>
-    <spec name="jsr314" url="http://jcp.org/en/jsr/detail?id=314"/>
+    <spec specification-id="jsr299" name="Contexts and Dependency Injection 1.0" url="http://jcp.org/en/jsr/detail?id=299"/>
+    <spec specification-id="jsr314" name="Java Server Faces 2.0" url="http://jcp.org/en/jsr/detail?id=314"/>
 </specs>
 

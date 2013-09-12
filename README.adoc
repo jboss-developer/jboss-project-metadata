@@ -19,11 +19,12 @@ The format of the projects xml files must follow the XSD file. Below is an examp
 <project
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="urn:jboss-developer:projects"
-        xsi:schemaLocation="urn:jboss-developer:projects projects.xsd"
-        name="Hibernate Seach" 
+        xsi:schemaLocation="urn:jboss-developer:projects ../schemas/projects.xsd"
+        name="Hibernate Seach"
+        id="hibernate-search"
         short-name="Search" 
         url="http://www.hibernate.org/subprojects/search" 
-        organization="A Red Hat JBoss Project" 
+        organization-id="redhat" 
         scm="https://github.com/hibernate/hibernate-search" 
         downloads="http://www.hibernate.org/subprojects/search/download" 
         documentation="http://www.hibernate.org/subprojects/search/docs"
@@ -31,11 +32,13 @@ The format of the projects xml files must follow the XSD file. Below is an examp
         forum="https://forum.hibernate.org/viewforum.php?f=9"
         irc="http://www.hibernate.org/community/irc"
         dev-mailing-list="https://lists.jboss.org/mailman/listinfo/hibernate-dev"
+        parent-project-id="hibernate">
 
   <tagline>Hibernate Search brings the power of full text search engines to the persistence domain model by combining Hibernate Core with the capabilities of the Apache Lucene™ search engine.</tagline>
   <description>
   Hibernate Search brings the power of full text search engines to the persistence domain model by combining Hibernate Core with the capabilities of the Apache Lucene™ search engine.
   </description>
+  
   <namespace type="maven-group-id">
     org.hibernate
   </namespace>
@@ -45,6 +48,7 @@ The format of the projects xml files must follow the XSD file. Below is an examp
   <social-network type="twitter-account">@Hibernate</social-network>
   <social-network type="googleplus-url">https://plus.google.com/112681342290762837955/posts</social-network>
   <label name="lead-developer">Sanne Grinovero</label>
+  <related organization-id="redhat" project-id="infinispan" />
 </project>
 ----
 
@@ -62,10 +66,11 @@ The format of the specification xml files must follow the XSD file. Below is an 
 <specs 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="urn:jboss-developer:specs"
-        xsi:schemaLocation="urn:jboss-developer:specs specs.xsd">
+        xsi:schemaLocation="urn:jboss-developer:specs ../schemas/specs.xsd"
+        organization-id="jcp">
 
-    <spec name="jsr299" url="http://jcp.org/en/jsr/detail?id=299"/>
-    <spec name="jsr314" url="http://jcp.org/en/jsr/detail?id=314"/>
+    <spec specification-id="jsr299" name="Contexts and Dependency Injection 1.0" url="http://jcp.org/en/jsr/detail?id=299"/>
+    <spec specification-id="jsr314" name="Java Server Faces 2.0" url="http://jcp.org/en/jsr/detail?id=314"/>
 </specs>
 ----
 
@@ -83,12 +88,12 @@ The format of the product xml files must follow the XSD file. Below is an exampl
 <product 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="urn:jboss-developer:products"
-        xsi:schemaLocation="urn:jboss-developer:products products.xsd"
-        name="jboss-enterprise-application-platform">
+        xsi:schemaLocation="urn:jboss-developer:products ../schamas/products.xsd"
+        product-id="jboss-eap">
     <uses>
-       <project org="jboss" name="wildfly"/>
-       <spec org="jcp" name="jsr314"/>
-       <spec org="jcp" name="jsr299"/>
+       <project organization-id="redhat" project-id="wildfly"/>
+       <spec organization-id="jcp" specification-id="jsr314"/>
+       <spec organization-id="jcp" specification-id="jsr299"/>
     </uses>
 </product>
 ----

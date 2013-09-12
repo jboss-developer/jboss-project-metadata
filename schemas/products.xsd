@@ -20,10 +20,10 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="name" use="required" type="xs:string">
+    <xs:attribute name="product-id" use="required" type="xs:string">
       <xs:annotation>
         <xs:documentation> 
-          The name of the product, full name, no abbreviations.
+          The id of the product, formed by taking the short name of the product, replacing spaces with dashes, and changing all characters to lower case.
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -49,37 +49,33 @@
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="project-ref-type">
-    <xs:attribute name="org" use="required" type="xs:string">
+    <xs:attribute name="organization-id" use="required" type="xs:string">
       <xs:annotation>
         <xs:documentation> 
-          Organization which creates the project. This must match the name
-          the XML file containing the project. 
+          Organization which owns the project. This must be a valid organization.
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="name" use="required" type="xs:string">
+    <xs:attribute name="project-id" use="required" type="xs:string">
       <xs:annotation>
         <xs:documentation> 
-          The name of the referenced project. This must match the name of
-          the project in the XML file. 
+          The id of the referenced project. This must be a valid project.
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
   <xs:complexType name="spec-ref-type">
-    <xs:attribute name="org" use="required" type="xs:string">
+    <xs:attribute name="organization-id" use="required" type="xs:string">
       <xs:annotation>
         <xs:documentation> 
-          Organization which creates the specification. This must match the
-          name the XML file containing the specification. 
+          Organization which owns the specification. This must be a valid organization. 
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="name" use="required" type="xs:string">
+    <xs:attribute name="specification-id" use="required" type="xs:string">
       <xs:annotation>
         <xs:documentation> 
-          The name of the referenced specification. This must match the
-          name of the specification in the XML file. 
+          The id of the referenced specification. This must be a valid specification.
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>

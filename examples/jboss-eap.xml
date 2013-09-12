@@ -3,11 +3,11 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="urn:jboss-developer:products"
         xsi:schemaLocation="urn:jboss-developer:products ../schamas/products.xsd"
-        name="red-hat-jboss-enterprise-application-platform">
+        product-id="jboss-eap">
     <uses>
-       <project org="jboss" name="wildfly"/>
-       <spec org="jcp" name="jsr314"/>
-       <spec org="jcp" name="jsr299"/>
+       <project organization-id="redhat" project-id="wildfly"/>
+       <spec organization-id="jcp" specification-id="jsr314"/>
+       <spec organization-id="jcp" specification-id="jsr299"/>
     </uses>
 </product>
 
